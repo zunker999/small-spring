@@ -44,3 +44,9 @@ registerBeanDefinition(String beanName, BeanDefinition beanDefinition) 方法，
 
 * 此外与上一章节测试过程中不同的是，我们把 UserService.class 传递给了
 BeanDefinition 而不是像上一章节那样直接 new UserService() 操作。
+
+** TEST **
+
+** 这里会有两次测试信息，一次是获取 Bean 时直接创建的对象，另外一次是从缓存中获取的实例化对象。 **
+
+** 此外从调试的截图中也可以看到第二次获取单例对象，已经可以从内存中获取了， **

@@ -3,10 +3,9 @@ package cn.bugstack.springframework.beans.factory.support;
 import cn.bugstack.springframework.beans.BeansException;
 import cn.bugstack.springframework.beans.factory.config.BeanDefinition;
 
-import java.lang.annotation.Annotation;
+import cn.bugstack.springframework.beans.factory.instantiate.CglibSubclassingInstantiationStrategy;
+import cn.bugstack.springframework.beans.factory.instantiate.InstantiationStrategy;
 import java.lang.reflect.Constructor;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Desc
@@ -17,7 +16,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     @Override
     protected Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException {
-        Object bean = null;
+        Object bean;
         try {
             bean = createBeanInstance(beanDefinition, beanName, args);
         } catch (Exception e) {

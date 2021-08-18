@@ -1,4 +1,4 @@
-package cn.bugstack.springframework.beans.factory.support;
+package cn.bugstack.springframework.beans.factory.instantiate;
 
 import cn.bugstack.springframework.beans.BeansException;
 import cn.bugstack.springframework.beans.factory.config.BeanDefinition;
@@ -6,8 +6,6 @@ import cn.bugstack.springframework.beans.factory.config.BeanDefinition;
 import java.lang.reflect.Constructor;
 
 /**
- *
-
  * <p>
  * Bean 实例化策略
  */

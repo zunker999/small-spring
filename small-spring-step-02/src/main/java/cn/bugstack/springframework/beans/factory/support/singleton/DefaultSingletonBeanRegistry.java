@@ -1,12 +1,13 @@
-package cn.bugstack.springframework.beans.factory.support;
+package cn.bugstack.springframework.beans.factory.support.singleton;
 
-import cn.bugstack.springframework.beans.factory.config.SingletonBeanRegistry;
+import cn.bugstack.springframework.beans.factory.support.singleton.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Desc 单例注册的实现类，并置入容器用来缓存addSingleton()需要注册的bean
+ * 单例注册的实现类，主要是实现SingletonBeanRegistry中的getSingleton，
+ * 同时实现一个受保护的addSingleton()供被继承者调用，用来缓存addSingleton()需要注册的bean
  */
 public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
 

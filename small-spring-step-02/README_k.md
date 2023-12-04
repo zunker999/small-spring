@@ -12,6 +12,7 @@ AbstractAutowireCapableBeanFactory
 AbstractBeanFactory
 1、实现了父类DefaultSingletonBeanRegistry中的getBean方法
 2、定义了createBean()和getBeanDefinition()两个抽象方法
+3、典型的模板模式，getBean() 中定义好方法的执行顺序：先getBeanDefinition() 再createBean()
 
 
 DefaultSingletonBeanRegistry

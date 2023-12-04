@@ -7,9 +7,7 @@ import cn.bugstack.springframework.beans.factory.support.singleton.DefaultSingle
 
 /**
  * 抽象工厂，继承DefaultSingletonBeanRegistry，使其具备了单例注册和获取的功能
- *
  * @see #getBean 的方法供上层工厂实现类使用
- *
  * 下面两个方法相当于是模板方法的封装
  * @see #getBeanDefinition
  * @see #createBean
@@ -19,6 +17,7 @@ import cn.bugstack.springframework.beans.factory.support.singleton.DefaultSingle
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
 
     /**
+     * 典型的模板模式，getBean() 中定义好方法的执行顺序：先getBeanDefinition() 再createBean()
      * 主要是对单例bean对象的获取，
      * 如果拿不到bean时，使用抽象方法#getBeanDefinition拿到bean的定义信息并调用另一个抽象方法#createBean来创建bean，具体实现由继承他的子类来实现
      */

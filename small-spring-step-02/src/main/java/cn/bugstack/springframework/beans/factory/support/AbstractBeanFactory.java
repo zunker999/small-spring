@@ -24,7 +24,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
      */
     @Override
     public Object getBean(String name) throws BeansException {
-        // 从singleton缓存中取值，如果不存在则创建并存入缓存
+        // 从singleton缓存（相当于从内存中直接获取）中取值，如果不存在则创建并存入缓存
         Object bean = getSingleton(name);
         if (bean != null) {
             return bean;

@@ -7,13 +7,7 @@ import cn.bugstack.springframework.beans.factory.config.BeanReference;
 import cn.bugstack.springframework.beans.factory.support.DefaultListableBeanFactory;
 import cn.bugstack.springframework.test.bean.UserDao;
 import cn.bugstack.springframework.test.bean.UserService;
-import net.sf.cglib.proxy.Callback;
-import net.sf.cglib.proxy.Enhancer;
-import net.sf.cglib.proxy.NoOp;
 import org.junit.Test;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @Desc

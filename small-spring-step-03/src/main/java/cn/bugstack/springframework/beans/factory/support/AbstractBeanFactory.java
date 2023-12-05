@@ -5,8 +5,6 @@ import cn.bugstack.springframework.beans.factory.BeanFactory;
 import cn.bugstack.springframework.beans.factory.config.BeanDefinition;
 
 /**
- *
-
  * <p>
  * BeanDefinition注册表接口
  */
@@ -22,6 +20,9 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
         return doGetBean(name, args);
     }
 
+    /**
+     * 使用模版模式定义创建并获取bean的过程
+     */
     protected <T> T doGetBean(final String name, final Object[] args) {
         Object bean = getSingleton(name);
         if (bean != null) {

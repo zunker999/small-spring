@@ -2,7 +2,6 @@ package cn.bugstack.springframework.beans.factory.support;
 
 import cn.bugstack.springframework.beans.BeansException;
 import cn.bugstack.springframework.beans.factory.config.BeanDefinition;
-
 import cn.bugstack.springframework.beans.factory.instantiate.CglibSubclassingInstantiationStrategy;
 import cn.bugstack.springframework.beans.factory.instantiate.InstantiationStrategy;
 import java.lang.reflect.Constructor;
@@ -18,6 +17,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     protected Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException {
         Object bean;
         try {
+            // 实例化一个对象，下面会调用CGLIB库中的Enhancer来创建一个增强型类，并进行实例化作为demo
             bean = createBeanInstance(beanDefinition, beanName, args);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed", e);
@@ -27,6 +27,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         return bean;
     }
 
+
+    /**
+     * 调用CGLIB库中的Enhancer来创建一个增强型类，并进行实例化
+     */
     protected Object createBeanInstance(BeanDefinition beanDefinition, String beanName, Object[] args) {
         Constructor constructorToUse = null;
         Class<?> beanClass = beanDefinition.getBeanClass();
@@ -37,6 +41,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
                 break;
             }
         }
+        // 策略模式
         return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
     }
 
